@@ -1,0 +1,24 @@
+{
+  "name": "t3-ejemplos (Java 25 + Maven)",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "25",
+      "jdkDistro": "tem",
+      "installMaven": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["vscjava.vscode-java-pack"],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "editor.formatOnSave": true,
+        "files.encoding": "utf8"
+      }
+    }
+  },
+  "postCreateCommand": "java -version && mvn -q -B dependency:resolve",
+  "hostRequirements": { "cpus": 2, "memory": "4gb" }
+}
