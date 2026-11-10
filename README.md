@@ -61,13 +61,9 @@ t3-ejemplos/
     └── test/java/es/uib/prgava/tema3/monitor/
 ```
 
-En el tema, cada idea se explica con un **ejemplo breve** en el texto principal, y casi todo lo que
-toca al monitor va en **ampliaciones**. Las tablas lo indican en la última columna: lo marcado como
-*ampliación* es material opcional.
-
 ### `tema3.fundamentos` — sección 3.1
 
-| Clase | Qué es | Dónde |
+| Clase | Qué es | Sección |
 |---|---|---|
 | `DemoFormasDeCrearHilos` | cuatro formas de crear un hilo; el orden de los saludos cambia en cada ejecución | 3.1.2 |
 | `DemoHilos` | dos hilos a la vez, `start` y `join` | 3.1.2 |
@@ -79,53 +75,52 @@ toca al monitor va en **ampliaciones**. Las tablas lo indican en la última colu
 
 ### `tema3.herramientas` — sección 3.2
 
-| Clase | Qué es | Dónde |
+| Clase | Qué es | Sección |
 |---|---|---|
-| `DemoEjecutor` | seis tareas, tres hilos: el ejecutor reparte | 3.2.1 |
+| `DemoEjecutar` | seis tareas `Runnable` entregadas con `execute` a tres hilos; el orden de la salida cambia | 3.2.1 |
+| `DemoEjecutor` | las mismas seis tareas como `Callable`, con `submit` y `Future`: la salida sale en orden | 3.2.1 |
 | `DemoFuturoCompletable` | dos consultas a la vez combinadas con `CompletableFuture`, y una que sigue sola | 3.2.2 |
 | `DemoContarPalabras` | contar palabras con `get` y `put` pierde cuentas; con `merge`, no | 3.2.3 |
-| `RepositorioComprobarYActuar` | el repositorio concurrente con el error de comprobar y después actuar | 3.2.3, ampliación |
 | `DemoContadores` | sin proteger, con cerrojo y con `AtomicLong`: correcto o no, y cuánto tarda | 3.2.4 |
 | `DemoTryLock` | el interbloqueo de 3.1.6, deshecho con `tryLock` y un plazo | 3.2.6 |
 
 ### `tema3.virtuales` — sección 3.3
 
-| Clase | Qué es | Dónde |
+| Clase | Qué es | Sección |
 |---|---|---|
 | `DemoMilHilos` | diez mil esperas con doscientos hilos de plataforma y con hilos virtuales | 3.3.2 |
 | `DemoSemaforo` | diez descargas, sin límite y con un semáforo de tres permisos | 3.3.3 |
-| `DemoValorConAmbito` | un `ScopedValue` que llega a las subtareas de un ámbito y no a otros hilos *(vista previa)* | 3.3.5, ampliación |
+| `DemoValorConAmbito` | un `ScopedValue` que llega a las subtareas de un ámbito y no a otros hilos *(vista previa)* | 3.3.5 |
 
 ### `tema3.reactiva` — sección 3.4
 
-| Clase | Qué es | Dónde |
+| Clase | Qué es | Sección |
 |---|---|---|
 | `SuscriptorLento` | un suscriptor que pide los elementos de uno en uno | 3.4.2 |
 | `DemoContrapresion` | `submit` espera, `offer` descarta: las dos estrategias de contrapresión | 3.4.2 |
 
 ### `tema3.monitor` — el ejemplo unificador
 
-| Clase | Qué es | Dónde |
+| Clase | Qué es | Sección |
 |---|---|---|
-| `SondaLenta` | una sonda que tarda lo que tardaría la red | 3.1.3, ampliación |
-| `Escenario` | los datos de todos los experimentos: latencias fijas, uno de cada diez caído | 3.1.3, ampliación |
-| `RondaConHilos` | la ronda con un hilo por servicio | 3.1.3, ampliación |
-| `DemoRondas` | ronda secuencial frente a ronda con hilos | 3.1.3, ampliación |
-| `DemoRepositorioCompartido` | prueba de esfuerzo: el repositorio del Tema 2 pierde resultados y revienta | 3.1.3, ampliación |
-| `RepositorioSincronizado` | decorador que protege cualquier repositorio con `synchronized` | 3.1.5, ampliación |
-| `RondaConEjecutor` | la ronda sobre un ejecutor, con `invokeAll` y un plazo | 3.2.1, ampliación |
-| `DemoRondaConEjecutor` | la ronda con ejecutores de distinto tamaño | 3.2.1, ampliación |
-| `RepositorioConcurrente` | el índice por servicio con `ConcurrentHashMap` y `ConcurrentLinkedQueue` | 3.2.3, ampliación |
-| `DemoRepositoriosConcurrentes` | la prueba de esfuerzo repetida veinte veces sobre tres repositorios | 3.2.3, ampliación |
+| `SondaLenta` | una sonda que tarda lo que tardaría la red | 3.1.3 |
+| `Escenario` | los datos de todos los experimentos: latencias fijas, uno de cada diez caído | 3.1.3 |
+| `RondaConHilos` | la ronda con un hilo por servicio | 3.1.3 |
+| `DemoRondas` | ronda secuencial frente a ronda con hilos | 3.1.3 |
+| `DemoRepositorioCompartido` | prueba de esfuerzo: el repositorio del Tema 2 pierde resultados y revienta | 3.1.3 |
+| `RepositorioSincronizado` | decorador que protege cualquier repositorio con `synchronized` | 3.1.5 |
+| `RondaConEjecutor` | la ronda sobre un ejecutor, con `invokeAll` y un plazo | 3.2.1 |
+| `DemoRondaConEjecutor` | la ronda con ejecutores de distinto tamaño | 3.2.1 |
+| `RepositorioConcurrente` | el índice por servicio con `ConcurrentHashMap` y `ConcurrentLinkedQueue` | 3.2.3 |
 | `NotificadorAsincrono` | productor-consumidor: las alertas se avisan desde otro hilo | 3.2.5 |
 | `DemoNotificadorAsincrono` | un notificador lento, directo y a través de la cola | 3.2.5 |
-| `DemoMilServicios` | mil servicios con hilos de plataforma, con hilos virtuales y con un límite | 3.3.2, ampliación |
-| `SondaLimitada` | decorador que limita los sondeos simultáneos con un semáforo | 3.3.3, ampliación |
+| `DemoMilServicios` | mil servicios con hilos de plataforma, con hilos virtuales y con un límite | 3.3.2 |
+| `SondaLimitada` | decorador que limita los sondeos simultáneos con un semáforo | 3.3.3 |
 | `RondaEstructurada` | la ronda como ámbito de concurrencia estructurada *(vista previa)* | 3.3.4 |
 | `DemoRondaEstructurada` | la ronda estructurada con un plazo holgado y con uno corto *(vista previa)* | 3.3.4 |
-| `RepositorioPublicador` | decorador que publica cada resultado guardado como un flujo | 3.4.2, ampliación |
-| `PanelEnVivo` | un suscriptor que muestra los resultados según llegan | 3.4.2, ampliación |
-| `DemoPanelEnVivo` | una ronda con el panel suscrito | 3.4.2, ampliación |
+| `RepositorioPublicador` | decorador que publica cada resultado guardado como un flujo | 3.4.2 |
+| `PanelEnVivo` | un suscriptor que muestra los resultados según llegan | 3.4.2 |
+| `DemoPanelEnVivo` | una ronda con el panel suscrito | 3.4.2 |
 
 ### La prueba
 

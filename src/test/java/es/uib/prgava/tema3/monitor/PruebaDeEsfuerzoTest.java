@@ -17,7 +17,7 @@ import es.uib.prgava.tema2.monitor.RepositorioConVentana;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * La prueba de esfuerzo de la ampliación de 3.1.3, convertida en prueba: ocho hilos guardan a la
+ * La prueba de esfuerzo de 3.1.3, convertida en prueba: ocho hilos guardan a la
  * vez en el mismo repositorio, y las dos versiones seguras tienen que conservarlo todo.
  *
  * <p>No hay prueba para el repositorio sin proteger, y es a propósito: una prueba que falla
