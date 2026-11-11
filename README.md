@@ -82,6 +82,7 @@ t3-ejemplos/
 | `DemoFuturoCompletable` | dos consultas a la vez combinadas con `CompletableFuture`, y una que sigue sola | 3.2.2 |
 | `DemoContarPalabras` | contar palabras con `get` y `put` pierde cuentas; con `merge`, no | 3.2.3 |
 | `DemoContadores` | sin proteger, con cerrojo y con `AtomicLong`: correcto o no, y cuánto tarda | 3.2.4 |
+| `DemoPasaplatos` | un cocinero, dos camareros y un pasaplatos con `ArrayBlockingQueue`: `put` y `take` esperan | 3.2.5 |
 | `DemoTryLock` | el interbloqueo de 3.1.6, deshecho con `tryLock` y un plazo | 3.2.6 |
 
 ### `tema3.virtuales` — sección 3.3
