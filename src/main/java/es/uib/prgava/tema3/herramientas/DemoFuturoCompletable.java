@@ -45,7 +45,7 @@ public final class DemoFuturoCompletable {
     }
 
     public static void main(String[] args) {
-        try (ExecutorService ejecutor = Executors.newVirtualThreadPerTaskExecutor()) {
+        try (ExecutorService ejecutor = Executors.newFixedThreadPool(2)) {
             System.out.println("--- el puerto TCP contesta en 200 ms");
             comprobar(ejecutor, 200);
             System.out.println("--- el puerto TCP tardaria 2 s; el plazo es de 300 ms");
