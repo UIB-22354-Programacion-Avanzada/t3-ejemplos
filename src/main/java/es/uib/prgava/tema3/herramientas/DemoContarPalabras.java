@@ -4,7 +4,6 @@ package es.uib.prgava.tema3.herramientas;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiConsumer;
 
 /**
  * Cuatro hilos cuentan cuántas veces aparece cada palabra en un {@code ConcurrentHashMap}: primero
@@ -31,16 +30,22 @@ public final class DemoContarPalabras {
         cuentas.merge(palabra, 1, Integer::sum);
     }
 
-    /** Lanza los hilos, espera a que terminen y devuelve cuántas palabras se han perdido. */
-    private static long perdidas(BiConsumer<Map<String, Integer>, String> contar)
-            throws InterruptedException {
+    /**
+     * Lanza los hilos, espera a que terminen y devuelve cuántas palabras se han perdido. Con
+     * {@code conMerge} cuentan con merge; sin él, con get y put.
+     */
+    private static long perdidas(boolean conMerge) throws InterruptedException {
         Map<String, Integer> cuentas = new ConcurrentHashMap<>();
         Thread[] hilos = new Thread[HILOS];
         for (int h = 0; h < HILOS; h++) {
             hilos[h] = new Thread(() -> {
                 for (int i = 0; i < VUELTAS; i++) {
                     for (String palabra : PALABRAS) {
-                        contar.accept(cuentas, palabra);
+                        if (conMerge) {
+                            contarConMerge(cuentas, palabra);
+                        } else {
+                            contarConGetYPut(cuentas, palabra);
+                        }
                     }
                 }
             });
@@ -56,12 +61,11 @@ public final class DemoContarPalabras {
         return (long) HILOS * VUELTAS * PALABRAS.size() - contadas;
     }
 
-    private static void medir(String nombre, BiConsumer<Map<String, Integer>, String> contar)
-            throws InterruptedException {
+    private static void medir(String nombre, boolean conMerge) throws InterruptedException {
         int conPerdidas = 0;
         long total = 0;
         for (int r = 0; r < REPETICIONES; r++) {
-            long p = perdidas(contar);
+            long p = perdidas(conMerge);
             if (p > 0) {
                 conPerdidas++;
             }
@@ -73,7 +77,7 @@ public final class DemoContarPalabras {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("   cada prueba cuenta " + HILOS * VUELTAS * PALABRAS.size() + " palabras");
-        medir("get y put:", DemoContarPalabras::contarConGetYPut);
-        medir("merge:", DemoContarPalabras::contarConMerge);
+        medir("get y put:", false);
+        medir("merge:", true);
     }
 }
