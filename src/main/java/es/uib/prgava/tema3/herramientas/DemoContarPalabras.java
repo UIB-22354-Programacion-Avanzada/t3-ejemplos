@@ -7,9 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 
 /**
- * Cuatro hilos cuentan las mismas palabras en un {@code ConcurrentHashMap}: primero leyendo y
- * escribiendo por separado, después con una sola operación atómica. Cada forma se repite veinte
- * veces, porque lo que describe una carrera es con qué frecuencia aparece.
+ * Cuatro hilos cuentan cuántas veces aparece cada palabra en un {@code ConcurrentHashMap}: primero
+ * leyendo y escribiendo por separado, después con una sola operación atómica. Cada forma se repite
+ * veinte veces, porque lo que describe una carrera es con qué frecuencia aparece.
  */
 public final class DemoContarPalabras {
 
