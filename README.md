@@ -30,9 +30,10 @@ cómodo.
 
 ### La opción `--enable-preview`
 
-Cuatro clases —`DemoViaje`, `RondaEstructurada`, `DemoRondaEstructurada` y
-`DemoValorConAmbito`— usan `StructuredTaskScope`, que en Java 25 es todavía una API **en vista
-previa** (sección 3.3.4 del tema). El proyecto ya está configurado para ello, en dos sitios:
+Cinco clases —`DemoViaje`, `DemoCocinaEstructurada`, `RondaEstructurada`,
+`DemoRondaEstructurada` y `DemoValorConAmbito`— usan `StructuredTaskScope`, que en Java 25 es
+todavía una API **en vista previa** (sección 3.3.4 del tema). El proyecto ya está configurado
+para ello, en dos sitios:
 
 - en el `pom.xml`, para el compilador y para las pruebas;
 - en `.mvn/jvm.config`, para que `mvn exec:java` pueda ejecutar las clases compiladas así.
@@ -92,6 +93,7 @@ t3-ejemplos/
 | `DemoMilHilos` | diez mil esperas con doscientos hilos de plataforma y con hilos virtuales | 3.3.2 |
 | `DemoSemaforo` | diez descargas, sin límite y con un semáforo de tres permisos | 3.3.3 |
 | `DemoViaje` | el presupuesto de un viaje: tres consultas en un ámbito estructurado, con y sin fallo *(vista previa)* | 3.3.4 |
+| `DemoCocinaEstructurada` | el pasaplatos de 3.2.5 en un ámbito estructurado: si el camarero falla, se cierra la cocina *(vista previa)* | 3.3.4 |
 | `DemoValorConAmbito` | un `ScopedValue` que llega a las subtareas de un ámbito y no a otros hilos *(vista previa)* | 3.3.5 |
 
 ### `tema3.reactiva` — sección 3.4
